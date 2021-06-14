@@ -6,8 +6,7 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignContent: 'center',
     flexDirection: 'column',
-    height: '100vh',
-    background: '#ECF0F3',
+    height: '90vh',
     color: 'black',
   },
   message: {
@@ -25,7 +24,7 @@ const useStyles = makeStyles({
       color: '#f00',
     },
     textDecoration: 'none',
-    marginLeft: '2rem',
+    marginRight: '3rem',
   },
 });
 

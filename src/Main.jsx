@@ -1,5 +1,6 @@
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import SupportPage from './supportPage';
+import SupportPage from './SupportPage';
 import ManagementTable from './ManagementTable';
 
 const Main = () => {

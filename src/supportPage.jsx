@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Box, TextField, Paper, Typography } from '@material-ui/core';
+import { Grid, Box, TextField, Typography } from '@material-ui/core';
 import useStyles from './styles';
 
 const SupportPage = () => {
@@ -15,7 +15,7 @@ const SupportPage = () => {
   };
 
   return (
-    <Grid container xs={12} sm={12} md={12} lg={12} className={classes.supportPage}>
+    <Grid container className={classes.supportPage}>
       <Box className={classes.message}>
         <Typography variant="h4">{title}</Typography>
         <Typography component="p">{description}</Typography>
@@ -26,9 +26,9 @@ const SupportPage = () => {
           name="email"
           type="email"
           label="Email"
+          variant="outlined"
           value={email}
           onChange={handleEmailChange}
-          variant="outlined"
         />
       </Box>
     </Grid>
