@@ -11,35 +11,24 @@ import {
 } from '@material-ui/core';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import CancelIcon from '@material-ui/icons/Cancel';
+import axios from 'axios';
 
 const ManagementTable = () => {
   const [content, setContent] = useState([]);
   const [pagination, setPagination] = useState({ total: 0 });
 
   useEffect(() => {
-    const getData = async () => {
-      const dataFromServer = await fetchData();
-      setContent(dataFromServer);
+    const fetchData = async () => {
+      const result = await axios('http://localhost:5000/data');
+      setContent(result.data);
     };
-    const getPagination = async () => {
-      const dataFromServer = await fetchPagination();
-      setPagination(dataFromServer);
+    const fetchPagination = async () => {
+      const result = await axios('http://localhost:5000/paging');
+      setPagination(result.data);
     };
-    getData();
-    getPagination();
+    fetchData();
+    fetchPagination();
   }, []);
-
-  const fetchData = async () => {
-    const res = await fetch('http://localhost:5000/data');
-    const data = await res.json();
-    return data;
-  };
-
-  const fetchPagination = async () => {
-    const res = await fetch('http://localhost:5000/paging');
-    const data = await res.json();
-    return data;
-  };
 
   const getFullName = (firstName, lastName) => {
     return `${firstName} ${lastName}`;
